@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="train.png" type="image/png">
+	<title>Student</title>
+	<style type="text/css">
+		@media screen and (max-width: 450px) {
+  .sidenav {padding-top: 15px;
+  	width: 100px;}
+  .sidenav a {font-size: 18px;}
+  body{
+  	font-family: Calibri, sans-serif !important;
+  }
+}
+.main {
+  margin-left: 250px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 50px 10px;
+}
+.sidenav a:hover  {
+  color:  #808080;
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-color:#d9d9d9;
+}
+.sidenav a:active  {
+  color:  #808080;
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-color:#d9d9d9;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:  #00cc99;
+  overflow-x: hidden;
+  padding-top: 70px;
+
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+}
+h1{ 
+  color: darkblue;
+  text-shadow: 1px 1px 2px blue, 0 0 25px white, 0 0 5px darkblue;
+  margin-top: 200px; font-size: 50px;
+}
+.hide{
+    display: none;
+}
+
+.tab{
+	 margin-left:50px;
+    background-color: white;
+    color: #131a2f;
+    padding: 25px;
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+body{
+	font-family: Calibri, sans-serif;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  font-size: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+  font-size: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+	</style>
+</head>    
+<body style="font-family: Calibri,sans-serif;" onload="Welcome()">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#" style="font-size:30px; color: #000000;  text-decoration: none !important;">
+				<span><img src="train.png" height="45px;" width="50px;" style="margin-top: 5px !important; font-size:50px;font-family:Calibri (Body);"></span>
+				ConcessEasy</a>
+				<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
+
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="my">
+				<ul class="nav navbar-nav navbar-right navbar-right">
+					<button type="button" class="btn btn-primary navbar-btn" style="margin-right: 10px;"><span class="glyphicon glyphicon-log-in" style="margin-right: 5px;" onclick="window.location.href='index.html'"></span>Logout</button>
+					
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="sidenav">
+  <a onclick="Welcome()" style="cursor: pointer;">Home</a>
+  <a onclick="Apply()" style="cursor: pointer;">Apply</a>
+  <a onclick="status()" style="cursor: pointer;">Status</a>
+  
+</div>
+
+<div class="main">
+ <center>
+ 	<h1 id="name" class="font-weight-bold tab col-md-9 col-xs-2 col-sm-6"></h1>
+ </center>
+ <div id="apply" class="tab col-md-9 hide" style=" margin-top: 150px;">
+ 	<div class="container" style="width: 700px;">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="sap">SAP ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" class="form-control" id="sap" name="sap" placeholder="Enter your SAP ID here">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="class">Class</label>
+      </div>
+      <div class="col-75">
+        <select id="class" name="class" class="form-control">
+          <option value="first">First</option>
+          <option value="second">Second</option>
+   
+        </select>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+     <button type="button" class="btn btn-primary" style="font-size: 25px;">Submit</button>
+    </div>
+  </form>
+</div>
+
+ </div>
+ <div id="statusId" class="tab col-md-9 hide" style="margin-top: 200px;">
+ 	<h2>
+ 		Status of your Registration
+ 	</h2><div id="btn"></div>
+ </div>
+
+
+</div>
+
+<script type="text/javascript">
+	var flag=1;
+	if(flag==0){
+	document.getElementById('btn').innerHTML='<button type="button" class="btn btn-success">Confirmed</button>';
+}
+else{
+	document.getElementById('btn').innerHTML='<button type="button" class="btn btn-warning " style="cursor:none;">Pending</button>';
+}
+</script>
+ <script>
+	$(".nav li").on("click",function(){
+		$(".nav li").removeClass("active");
+		$(this).addClass("active");
+		;
+	});
+		
+</script>
+<script type="text/javascript">
+	var name="Manali";
+
+	
+	      function Apply(){
+
+                        // Get desired elements
+                        var element = document.querySelectorAll(".tab");
+
+                        // Iterate through the retrieved elements and add the necessary class names.
+                        for(var i = 0; i < element.length; i++)
+                        {
+                            element[i].classList.add("hide");
+                        }
+                        document.querySelector("#apply").classList.remove("hide");
+
+                    }
+                    
+
+                    function Welcome(){
+
+                         var element = document.querySelectorAll(".tab");
+
+                        // Iterate through the retrieved elements and add the necessary class names.
+                        for(var i = 0; i < element.length; i++)
+                        {
+                            element[i].classList.add("hide");
+                        }
+                        document.getElementById('name').innerHTML="DJ Sanghvi College of Engineering";
+                        document.querySelector("#name").classList.remove("hide");
+
+                    }
+
+                    function status(){
+						 var element = document.querySelectorAll(".tab");
+
+                        // Iterate through the retrieved elements and add the necessary class names.
+                        for(var i = 0; i < element.length; i++)
+                        {
+                            element[i].classList.add("hide");
+                        }
+                        document.querySelector("#statusId").classList.remove("hide");
+                   }
+
+</script>
+
+<script
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+
+</html>
